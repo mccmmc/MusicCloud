@@ -1,28 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Авторизация</h1>
-<form action="" method="post">
-    {{ form.hidden_tag() }}
-    <p>
-        {{ form.username.label }}<br>
-        {{ form.username(class="form-control", type="email") }}<br>
-        {% for error in form.username.errors %}
-            <p class="alert alert-danger" role="alert">
-                {{ error }}
-            </p>
+<div class="login-form">
+    <h1 class="auth-title">Авторизация</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p class="username-block">
+            {{ form.username.label}}<br>
+            {{ form.username(class="username-lineedit") }}<br>
+            {% for error in form.username.errors %}
+        <p class="alert alert-danger" role="alert">
+            {{ error }}
+        </p>
         {% endfor %}
-    </p>
-    <p>
-        {{ form.password.label }}<br>
-        {{ form.password(class="form-control", type="password") }}<br>
-        {% for error in form.password.errors %}
-            <p class="alert alert-danger" role="alert">
-                {{ error }}
-            </p>
+        </p>
+        <p class="password-block">
+            {{ form.password.label }}<br>
+            {{ form.password(class="password-lineedit") }}<br>
+            {% for error in form.password.errors %}
+        <p class="alert alert-danger" role="alert">
+            {{ error }}
+        </p>
         {% endfor %}
-    </p>
-    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
-    {{message}}
-</form>
+        </p>
+        <p class="btn-block">{{ form.submit(class="btn-login") }}</p>
+        {{message}}
+    </form>
+</div>
 {% endblock %}
