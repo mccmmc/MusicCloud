@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}" />
+{% endblock %}
+
 {% block content %}
 <div class="login-form">
     <h1 class="auth-title">Авторизация</h1>
