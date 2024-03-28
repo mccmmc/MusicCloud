@@ -38,6 +38,7 @@ def login():
 def register():
     form = RegisterForm()
     if form.submit.data:
+        print(1)
         user = User()
         user.username = form.username.data
         user.set_password(form.password.data)
