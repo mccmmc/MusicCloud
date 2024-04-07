@@ -1,36 +1,20 @@
-from flask import request, Blueprint
+from flask import request, Blueprint, render_template
+from seach_sistem.search import search_tracks, create_client
 
-search = Blueprint('search', __name__)
-
-
-@search.route('/')
-def buff():
-    return f"""<!DOCTYPE html>
-<html>
-<head>
-  <title>Search Page</title>
-</head>
-<body>
-  <h1>Search</h1>
-  <form action="/search" method="POST">
-    <input type="text" name="query" placeholder="Enter search">
-    <button type="submit">Search</button>
-  </form>
-</body>
-</html>"""
+search_sistem = Blueprint('search_sistem', __name__, static_folder='static', template_folder='templates')
 
 
-@search.route('/search', methods=['POST'])
+@search_sistem.route('/')
+def mars():
+    return render_template('search.html', title='Поиск')
+
+
+@search_sistem.route('/result', methods=['POST'])
 def search():
     query = request.form['query']
+    print(type(query))
+    resp = search_tracks(create_client('AQAAAAAUjRFAAAG8Xn57pRR2lU7mqYicZyxhLlQ'), query)
 
-    return f"""<!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <title>results</title>
-      </head>
-      <body>
-          <p>{query}</p>
-      </body>
-    </html>"""
+    print(resp)
+
+    return render_template('search_results.html', tracks=resp)

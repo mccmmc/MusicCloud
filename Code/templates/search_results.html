@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>results</title>
+</head>
+<body>
+{% for item in tracks %}
+    <div class="Track">
+    <p>{{item['title']}}</p>
+    <a><img src={{item['image_link']}} alt={{item['title']}}></a>
+</div>
+{% endfor %}
+</body>
+</html>

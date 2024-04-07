@@ -1,9 +1,9 @@
 from config import app
 from auth import auth
-from search import search
+from search import search_sistem
 
 app.register_blueprint(auth, url_prefix='')
-app.register_blueprint(search, url_prefix='src')
+app.register_blueprint(search_sistem, url_prefix='/src')
 
 
 if __name__ == '__main__':
