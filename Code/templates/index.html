@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block links %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="seasons-in-james">
+        <div class="search-bar">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ddc8f0d00c5e2145ba72c1e7b8e3f1235a6127e2a7a9c89c3194d07d0acf50a0?apiKey=823b14785a364953bf0b4f886375bf83&"
+                 alt="" class="search-icon"/>
+            <div class="search-text">Search</div>
+        </div>
+        <main class="main-content">
+            <div class="icon-grid">
+                <div class="icon-column">
+                    <div class="icon-row">
+                        <div class="icon-wrapper">
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ba4d4d739f9f74e964a5c2cd4341a7a772c7840b764fa233f145db062b93c42c?apiKey=823b14785a364953bf0b4f886375bf83&"
+                                 alt="" class="icon icon-shadow"/>
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/a29a5eaaaf883f55ea66fe5ec7d9701cd9deccaf88b96cad2e22b3923a9cba08?apiKey=823b14785a364953bf0b4f886375bf83&"
+                                 alt="" class="icon"/>
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/294064f22421a38d86a15a1c0b0720b28b2e168078f263885803f30d4013be61?apiKey=823b14785a364953bf0b4f886375bf83&"
+                                 alt="" class="icon"/>
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b13116125a946984f3478fa83209f7a3dfe9e28adabd4af37eb65dbdd8d5b282?apiKey=823b14785a364953bf0b4f886375bf83&"
+                                 alt="" class="icon"/>
+                        </div>
+                    </div>
+                    <div class="icon-row">
+                        <div class="icon-wrapper">
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f5288c1a8c90cb85a305da26efb606827014f959c5fcb7a82fbc1586becd2e83?apiKey=823b14785a364953bf0b4f886375bf83&"
+                                 alt="" class="icon"/>
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d8faeaaf0b8a8b00a3b254e120810b7837d0bc4808a87b8ca92c3877017b9b2a?apiKey=823b14785a364953bf0b4f886375bf83&"
+                                 alt="" class="icon icon-shadow"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="player-controls">
+            <div class="player-bar">
+                <div class="song-info">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/bf06c6f22b195f56a0541e0a6177770f25972e422b168d515df5d1c00da5ae09?apiKey=823b14785a364953bf0b4f886375bf83&"
+                         alt="" class="album-art"/>
+                    <div class="song-details">
+                        <div class="song-title">Seasons in</div>
+                        <div class="artist-name">James</div>
+                    </div>
+                </div>
+                <div class="player-controls-right">
+                    <div class="control-buttons">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/632711c305a031c6f3f8b7c46323ad81d0c38cdc6b5b55fda81ccc1047d41eb7?apiKey=823b14785a364953bf0b4f886375bf83&"
+                             alt="" class="control-button"/>
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1bfbad3f32e8ad18208b57628ad5c124f37bead6c5e2c366c4c04a73358d9285?apiKey=823b14785a364953bf0b4f886375bf83&"
+                             alt="" class="control-button"/>
+                        <button class="play-button">
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/25c9185bb23535b39022a1db2137ade7422b21b9c8e54f41f2bfa0fea8e04860?apiKey=823b14785a364953bf0b4f886375bf83&"
+                                 alt="Play" class="player-play-icon"/>
+                        </button>
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/872531e3b66e516a04ba79273bc27a385d251d5c127f23f88bf982e451b5e9a4?apiKey=823b14785a364953bf0b4f886375bf83&"
+                             alt="" class="control-button"/>
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/86825ce81645667710d665d25539f2ea0b9f08ec0a4c66e3397aec44f622cdb8?apiKey=823b14785a364953bf0b4f886375bf83&"
+                             alt="" class="control-button"/>
+                    </div>
+                    <div class="progress-indicator">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+                <div class="volume-controls">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f0ef91549d34750214118ed2fb2dee943ffbcd43dd373b65554f99ce4b787beb?apiKey=823b14785a364953bf0b4f886375bf83&"
+                         alt="" class="volume-icon"/>
+                    <div class="volume-bar-container">
+                        <div class="volume-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
