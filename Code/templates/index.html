@@ -52,7 +52,7 @@
                     {%  for item in tracks %}
                     <div class="music-player__track">
                             <div class="music-player__track-info">
-                                <img src="{{ url_for('static', filename='music_library/User/1/1.jpg') }}"
+                                <img src="{{ url_for('static', filename=item["img_path"]) }}"
                                      alt="Track thumbnail" class="music-player__track-thumbnail"/>
                                 <button class="music-player__track-play-button" data-track-index="0">
                                     <img src="{{ url_for('static', filename='img/Heart.png') }}"

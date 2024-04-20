@@ -4,7 +4,8 @@ from wtforms.validators import DataRequired
 
 
 class RegisterForm(FlaskForm):
-    username = StringField('Имя пользователя', validators=[DataRequired()])
-    password = PasswordField('Пароль', validators=[DataRequired()])
-    password_again = PasswordField('Повторите пароль', validators=[DataRequired()])
+    username = StringField(validators=[DataRequired()], render_kw={"placeholder": "Логин"})
+    password = PasswordField(validators=[DataRequired()], render_kw={"placeholder": "Пароль"})
+    password_again = PasswordField(validators=[DataRequired()], render_kw={"placeholder": "Повторите пароль"})
+    token = PasswordField(validators=[DataRequired()], render_kw={"placeholder": "Введите токен"})
     submit = SubmitField('Зарегистрироваться')

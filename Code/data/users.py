@@ -11,10 +11,10 @@ class User(SqlAlchemyBase, UserMixin):
                            primary_key=True, autoincrement=True)
     username = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    token = sqlalchemy.Column(sqlalchemy.String, nullable=True)
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
-        print(self.hashed_password)
 
     def check_password(self, password):
         return check_password_hash(self.hashed_password, password)
