@@ -100,6 +100,7 @@ body{
     display: flex;
     align-items: center;
     align-self: start;
+
 }
 
 .music-player__app-nav-icons {

@@ -20,6 +20,6 @@ def get_tracks(user):
     return tracks
 
 @main_page.route('/')
-def mars():
+def results():
     tracks = get_tracks("User")
     return render_template("index.html", tracks=tracks)
