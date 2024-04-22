@@ -11,7 +11,10 @@
             <div class="music-player__search">
                 <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed862ea06ef1a2c993aa8dc397d64647c5b0d7349840027340d64423d01224a9?apiKey=823b14785a364953bf0b4f886375bf83&"
                      alt="Search icon" class="music-player__search-icon"/>
-                <input type="text" placeholder="Search" name="Search" class="music-player__search-input"/>
+                <form action="/src/result" method="POST">
+                    <input type="text" placeholder="Search" name="Search_music" class="music-player__search-input"/>
+                </form>
+
             </div>
             <main class="music-player__main">
                 <div class="music-player__controls">
