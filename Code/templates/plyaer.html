@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <audio controls="controls" autoplay="autoplay"></audio>
+    <ul>
+        {% for song in songs %}
+            <li>
+                <a href="javascript:void(0);" onclick="playSong('{{song}}')">{{song}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <script type="text/javascript">
+        function playSong(song){
+            $('audio').attr('src', '/static/music_library/mccmmc/'+song);
+        }
+    </script>
+{% endblock %}
