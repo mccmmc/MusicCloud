@@ -67,6 +67,7 @@ body{
     border: none;
     border-radius: 10px;
     background-color: rgba(51, 55, 59, 0.39);
+    color: white;
 }
 
 .music-player__main {

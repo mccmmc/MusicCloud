@@ -11,8 +11,9 @@ def mars():
 
 @search_sistem.route('/result', methods=['POST'])
 def search():
-    query = request.form['query']
+    query = request.form['Search_music']
     print(type(query))
+    print(query)
     resp = search_tracks(create_client('AQAAAAAUjRFAAAG8Xn57pRR2lU7mqYicZyxhLlQ'), query)
 
     print(resp)
