@@ -65,8 +65,10 @@
                     {%  for item in tracks %}
                     <div class="music-player__track">
                             <div class="music-player__track-info">
-                                <img src="{{ url_for('static', filename='music_library/User/1/1.jpg') }}"
-                                     alt="Track thumbnail" class="music-player__track-thumbnail"/>
+                                <button onclick="playSong('{{item['path']}}')">
+                                    <img src="{{item['img ']}}"
+                                        alt="Track thumbnail" class="music-player__track-thumbnail"/>
+                                </button>
                                 <button class="music-player__track-play-button" data-track-index="0">
                                     <img src="{{ url_for('static', filename='img/Heart.png') }}"
                                          alt="Heart" class="music-player__track-play-icon"/>
@@ -86,7 +88,14 @@
                 </div>
             </main>
             <footer class="music-player__player">
-                <div class="music-player__player-controls">ТУТ ПЛЕЕР</div>
+                <div class="music-player__player-controls">
+                    <audio controls="controls" autoplay="autoplay"></audio>
+                    <script type="text/javascript">
+                        function playSong(song){
+                            $('audio').attr('src', '/static/music_library/'+song);
+                        }
+                    </script>
+                </div>
             </footer>
         </div>
     </div>

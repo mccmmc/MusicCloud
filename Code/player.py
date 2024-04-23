@@ -8,12 +8,19 @@ player = Blueprint('player', __name__, static_folder='static', template_folder='
 
 @player.route('/')
 def ply():
-    default = './static/music_library/mccmmc'
+    user = 'mccmmc'
+    default = f'./static/music_library/{user}'
     songs = []
     for dirs in os.listdir(default):
         for trck in os.listdir(f'{default}/{dirs}'):
             if trck[-3:] == 'mp3':
-                songs.append(f'{dirs}/{trck}')
+
+                song = {
+                    'directory': f'{user}/{dirs}/{trck}',
+                    'title': trck
+                }
+                
+                songs.append(song)
                 print(trck)
     print(songs)
     return render_template('plyaer.html', songs=songs)

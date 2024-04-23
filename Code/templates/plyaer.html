@@ -5,13 +5,13 @@
     <ul>
         {% for song in songs %}
             <li>
-                <a href="javascript:void(0);" onclick="playSong('{{song}}')">{{song}}</a>
+                <a href="javascript:void(0);" onclick="playSong('{{song['directory']}}')">{{song['title']}}</a>
             </li>
         {% endfor %}
     </ul>
     <script type="text/javascript">
         function playSong(song){
-            $('audio').attr('src', '/static/music_library/mccmmc/'+song);
+            $('audio').attr('src', '/static/music_library/'+song);
         }
     </script>
 {% endblock %}
