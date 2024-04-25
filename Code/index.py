@@ -1,4 +1,6 @@
 from flask import request, Blueprint, render_template, url_for
+from flask_login import login_required
+import flask_login
 import os
 
 main_page = Blueprint('index', __name__, static_folder='static', template_folder='templates')
@@ -7,7 +9,10 @@ main_page = Blueprint('index', __name__, static_folder='static', template_folder
 def get_tracks(user):
     tracks = []
     directory = os.getcwd() + f'/static/music_library/{user}'
-    print(os.listdir(directory))
+    try:
+        track_counts = len(os.listdir(directory))
+    except FileNotFoundError:
+        return []
     track_dirs = os.listdir(directory)
     for i in track_dirs:
         print(i)
@@ -26,6 +31,7 @@ def get_tracks(user):
 
 
 @main_page.route('/')
+@login_required
 def results():
-    tracks = get_tracks("mccmmc")
+    tracks = get_tracks(str(flask_login.current_user.id))
     return render_template("index.html", tracks=tracks)

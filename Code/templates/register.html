@@ -1,39 +1,42 @@
 {% extends "base.html" %}
 
 {% block links %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}"/>
 {% endblock %}
 
 {% block content %}
-<div class="register-container">
-    <div class="register-form">
-        <h1 class="reg-title">Регистрация</h1>
-        <form action="" method="post">
-            {{ form.hidden_tag() }}
-            <div class="form-group">
-                {{ form.username.label }}
-                {{ form.username(class="form-control") }}
-                {% for error in form.username.errors %}
-                    <p class="error-message">{{ error }}</p>
-                {% endfor %}
-            </div>
-            <div class="form-group">
-                {{ form.password.label }}
-                {{ form.password(class="form-control") }}
-                {% for error in form.password.errors %}
-                    <p class="error-message">{{ error }}</p>
-                {% endfor %}
-            </div>
-            <div class="form-group">
-                {{ form.password_again.label }}
-                {{ form.password_again(class="form-control") }}
-                {% for error in form.password_again.errors %}
-                    <p class="error-message">{{ error }}</p>
-                {% endfor %}
-            </div>
-            {{ form.submit(type="submit", class="btn btn-primary") }}
-        </form>
-        {{ message }}
+    <div class="register-container">
+        <div class="register-form">
+            <h1 class="reg-title">Регистрация</h1>
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.username(class="form-control") }}
+                    {% for error in form.username.errors %}
+                        <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    {{ form.password(class="form-control") }}
+                    {% for error in form.password.errors %}
+                        <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    {{ form.password_again(class="form-control") }}
+                    {% for error in form.password_again.errors %}
+                        <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    {{ form.token(class="form-control") }}
+                    {% for error in form.token.errors %}
+                        <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {{ form.submit(type="submit", class="btn btn-primary") }}
+            </form>
+            {{ message }}
+        </div>
     </div>
-</div>
 {% endblock %}

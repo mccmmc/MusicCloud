@@ -22,13 +22,13 @@ def load_user(user_id):
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    if form.validate_on_submit():
+    if form.submit.data:
         db_session.global_init("db/users.db")
         db_sess = db_session.create_session()
         user = db_sess.query(User).filter(User.username == form.username.data).first()
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
-            return redirect("/")
+            return redirect("/main")
         return render_template('login.html',
                                message="Неправильный логин или пароль",
                                form=form)
