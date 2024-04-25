@@ -7,17 +7,19 @@ main_page = Blueprint('index', __name__, static_folder='static', template_folder
 def get_tracks(user):
     tracks = []
     directory = os.getcwd() + f'/static/music_library/{user}'
-    track_counts = len(os.listdir(directory))
-    for i in range(track_counts):
+    print(os.listdir(directory))
+    track_dirs = os.listdir(directory)
+    for i in track_dirs:
+        print(i)
         track_info = {}
-        with open(directory + f'/{i + 1}/track_info.txt', 'r', encoding="UTF8") as file:
+        with open(directory + f'/{i}/track_info.txt', 'r', encoding="UTF8") as file:
             data = [i.strip() for i in file.readlines()]
             print(data)
             track_info["name"] = data[0]
             track_info["type"] = data[1]
             track_info["duration"] = data[2]
             track_info["img"] = data[3]
-            track_info["path"] = f'{user}/{i + 1}/track.mp3'
+            track_info["path"] = f'{user}/{i}/track.mp3'
         tracks.append(track_info)
     print(tracks)
     return tracks

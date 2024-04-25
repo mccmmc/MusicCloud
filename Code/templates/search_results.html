@@ -67,7 +67,7 @@
                             <div class="music-player__track-info">
                                 <img src="{{item['image_link']}}"
                                      alt="Track thumbnail" class="music-player__track-thumbnail"/>
-                                <form method="POST">
+                                <form action="/src/download/{{item['id']}}">
                                     <button class="music-player__track-play-button" data-track-index="0">
                                         <img src="{{ url_for('static', filename='img/Add_button.png') }}"
                                              alt="Add_button" class="music-player__track-play-icon"/>
