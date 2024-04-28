@@ -11,7 +11,7 @@
             <div class="music-player__search">
                 <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed862ea06ef1a2c993aa8dc397d64647c5b0d7349840027340d64423d01224a9?apiKey=823b14785a364953bf0b4f886375bf83&"
                      alt="Search icon" class="music-player__search-icon"/>
-                <form action="/src/result" method="POST">
+                <form class="form-search" action="/src/result" method="POST">
                     <input type="text" placeholder="Search" name="Search_music" class="music-player__search-input"/>
                 </form>
 
@@ -22,68 +22,48 @@
                         <div class="music-player__app-nav-icons">
                             <div class="music-player__app-nav-icon-wrapper">
 
-                                <form action="/">
-                                    <button class="music-player__app-nav-icon-button" data-nav-index="0">
-                                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f99f0c9e3c9cb0d5875056b50550fe0cf0875f8feda5446de8b8ec04d6a2fb3d?apiKey=823b14785a364953bf0b4f886375bf83&"
-                                         alt="App navigation icon 1" class="music-player__app-nav-icon"/>
-                                </button>
-                                </form>
-
-
                                 <form action="/main">
-                                <button class="music-player__app-nav-icon-button" data-nav-index="1">
-                                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/64d98374d32f39c9e2eb5037ff0005651d34c8f68a5ad280e559b37ec428c335?apiKey=823b14785a364953bf0b4f886375bf83&"
-                                         alt="App navigation icon 2" class="music-player__app-nav-icon"/>
-                                </button>
+                                    <button class="music-player__app-nav-icon-button" data-nav-index="0">
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f99f0c9e3c9cb0d5875056b50550fe0cf0875f8feda5446de8b8ec04d6a2fb3d?apiKey=823b14785a364953bf0b4f886375bf83&"
+                                             alt="App navigation icon 1" class="music-player__app-nav-icon"/>
+                                    </button>
                                 </form>
-
-                                <form action="/src">
-                                    <button class="music-player__app-nav-icon-button" data-nav-index="2">
-                                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5012bebc9f324ee38fbea8a74b3820ae81ffc618753fc47d5d410a93b0f5139c?apiKey=823b14785a364953bf0b4f886375bf83&"
-                                         alt="App navigation icon 3" class="music-player__app-nav-icon"/>
-                                </button>
+                                <form action="/profile">
+                                    <button class="music-player__app-nav-icon-button" data-personal-nav-index="0">
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/386c4d2e773e95c6091f29a9a8ea9928a08381cbd19f6b15410d42cc5736fad5?apiKey=823b14785a364953bf0b4f886375bf83&"
+                                             alt="Personal navigation icon 1" class="music-player__personal-nav-icon"/>
+                                    </button>
+                                </form>
+                                <form action="/logout">
+                                    <button class="music-player__app-nav-icon-button" data-personal-nav-index="1">
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c5d327492e5c0946a29ddea7a2788b1c600a73fe455a1060355108ef459851d?apiKey=823b14785a364953bf0b4f886375bf83&"
+                                             alt="Personal navigation icon 2" class="music-player__personal-nav-icon"/>
+                                    </button>
                                 </form>
                             </div>
                         </div>
                     </nav>
-                    <div class="music-player__personal-nav">
-                        <div class="music-player__personal-nav-icons">
-                            <div class="music-player__personal-nav-icon-wrapper">
-                                <button class="music-player__personal-nav-icon-button" data-personal-nav-index="0">
-                                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/386c4d2e773e95c6091f29a9a8ea9928a08381cbd19f6b15410d42cc5736fad5?apiKey=823b14785a364953bf0b4f886375bf83&"
-                                         alt="Personal navigation icon 1" class="music-player__personal-nav-icon"/>
-                                </button>
-                                <button class="music-player__personal-nav-icon-button" data-personal-nav-index="1">
-                                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c5d327492e5c0946a29ddea7a2788b1c600a73fe455a1060355108ef459851d?apiKey=823b14785a364953bf0b4f886375bf83&"
-                                         alt="Personal navigation icon 2" class="music-player__personal-nav-icon"/>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="music-player__tracks">
-                    {%  for item in tracks %}
-                    <div class="music-player__track">
+                    {% for item in tracks %}
+                        <div class="music-player__track">
                             <div class="music-player__track-info">
-                                <button onclick="playSong('{{item['path']}}')">
-                                    <img src="{{item['img']}}"
-                                        alt="Track thumbnail" class="music-player__track-thumbnail"/>
-                                </button>
-                                <button class="music-player__track-play-button" data-track-index="0">
-                                    <img src="{{ url_for('static', filename='img/Heart.png') }}"
-                                         alt="Heart" class="music-player__track-play-icon"/>
+                                <button class="music-player__button" onclick="playSong('{{ item['path'] }}')">
+                                    <img src="{{ item['img'] }}"
+                                         alt="Track thumbnail" class="music-player__track-thumbnail"/>
                                 </button>
                             </div>
                             <div class="music-player__track-details">
                                 <div class="music-player__track-title">{{ item['name'] }}</div>
                                 <div class="music-player__track-album">{{ item['type'] }}</div>
                                 <div class="music-player__track-duration">{{ item['duration'] }}</div>
-                                <button class="music-player__track-options-button" data-track-index="0" onclick="location.href='#{{ loop.index }}'">
+                                <button class="music-player__track-options-button" data-track-index="0"
+                                        onclick="location.href='#{{ loop.index }}'">
                                     <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8f7990d772f70cf250fbd748221ce732e84373fcc7a082ac7101cb98d9684aea?apiKey=823b14785a364953bf0b4f886375bf83&"
                                          alt="Track options icon" class="music-player__track-options-icon"/>
                                 </button>
                             </div>
-                    </div>
+                        </div>
                     {% endfor %}
                 </div>
             </main>
@@ -91,8 +71,8 @@
                 <div class="music-player__player-controls">
                     <audio controls="controls" autoplay="autoplay"></audio>
                     <script type="text/javascript">
-                        function playSong(song){
-                            $('audio').attr('src', '/static/music_library/'+song);
+                        function playSong(song) {
+                            $('audio').attr('src', '/static/music_library/' + song);
                         }
                     </script>
                 </div>

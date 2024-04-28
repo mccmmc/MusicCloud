@@ -57,11 +57,16 @@ body{
     aspect-ratio: 0.88;
 }
 
-.music-player__search-input {
+.form-search{
     display: flex;
-    flex-direction: column;
     position: relative;
     width: 80%;
+    margin: 0 auto;
+}
+.music-player__search-input {
+    display: flex;
+    position: relative;
+    width: 100%;
     margin: 0 auto;
     padding-left: 20px;
     border: none;
@@ -123,6 +128,7 @@ body{
 .music-player__app-nav-icon-button {
     background: none;
     border: none;
+    margin: 10px 0px;
     padding: 0;
     cursor: pointer;
 }
@@ -224,15 +230,22 @@ body{
 
 .music-player__track-info {
     display: flex;
-    gap: 18px;
 }
-
+.track{
+    margin: auto;
+}
 .music-player__track-thumbnail {
     border-radius: 8px;
-    width: 39px;
-    aspect-ratio: 1;
+    width: 40px;
+    height: 40px;
     object-fit: auto;
     object-position: center;
+}
+.music-player__button{
+    height: 40px;
+    padding: 0;
+    border-radius: 10px;
+    border: none;
 }
 
 .music-player__track-play-button {

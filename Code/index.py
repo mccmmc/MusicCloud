@@ -1,5 +1,5 @@
-from flask import request, Blueprint, render_template, url_for
-from flask_login import login_required
+from flask import request, Blueprint, render_template, url_for, redirect
+from flask_login import current_user
 import flask_login
 import os
 
@@ -31,7 +31,8 @@ def get_tracks(user):
 
 
 @main_page.route('/')
-@login_required
 def results():
+    if not(current_user.is_authenticated):
+        return redirect('/login')
     tracks = get_tracks(str(flask_login.current_user.id))
     return render_template("index.html", tracks=tracks)
